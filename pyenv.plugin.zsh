@@ -3,4 +3,5 @@
 #
 # Automatic initialization of pyenv
 
+which pyenv > /dev/null || export PATH="${PATH}:${HOME}/.pyenv/bin"
 which pyenv > /dev/null && eval "$(pyenv init -)"
