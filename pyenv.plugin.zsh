@@ -3,5 +3,15 @@
 #
 # Automatic initialization of pyenv
 
-which pyenv > /dev/null || export PATH="${PATH}:${HOME}/.pyenv/bin"
-which pyenv > /dev/null && eval "$(pyenv init -)"
+if which pyenv > /dev/null
+then
+    # already in path
+else
+    if [[ -d "$HOME/.pyenv" ]]
+    then
+        export PYENV_ROOT="$HOME/.pyenv"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init --path)"
+        eval "$(pyenv init -)"
+    fi
+fi
