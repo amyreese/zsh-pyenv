@@ -3,16 +3,17 @@
 #
 # Automatic initialization of pyenv
 
-if which pyenv > /dev/null
-then
-    # already in path
-else
-    if [[ -d "$HOME/.pyenv" ]]
+function push_path() {
+    _len=${#path}
+    _i=${path[(i)$1]}
+    if [[ "$_i" -le "$_len" ]]
     then
-        export PYENV_ROOT="$HOME/.pyenv"
-        export PATH="$PYENV_ROOT/bin:$PATH"
-        eval "$(pyenv init --path)"
+        path[_i]=()
     fi
-fi
+    export path=("$1" "$path[@]")
+}
 
+export PYENV_ROOT="$HOME/.pyenv"
+push_path "$PYENV_ROOT/bin"
+push_path "$PYENV_ROOT/shims"
 which pyenv > /dev/null && eval "$(pyenv init -)"
