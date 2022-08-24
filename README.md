@@ -4,4 +4,4 @@ Automatic initialization of pyenv when available.
 
 ## copyright
 
-zsh-pyenv is copyright 2018 John Reese, and licensed under the MIT license.
+zsh-pyenv is copyright 2022 Amethyst Reese, and licensed under the MIT license.
