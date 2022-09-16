@@ -13,6 +13,10 @@ function push_path() {
     export path=("$1" "$path[@]")
 }
 
+if [ -d "$HOME/.local/bin" ]; then
+    push_path "$HOME/.local/bin"
+fi
+
 export PYENV_ROOT="$HOME/.pyenv"
 push_path "$PYENV_ROOT/bin"
 push_path "$PYENV_ROOT/shims"
