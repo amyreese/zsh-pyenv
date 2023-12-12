@@ -17,7 +17,9 @@ if [ -d "$HOME/.local/bin" ]; then
     push_path "$HOME/.local/bin"
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
-push_path "$PYENV_ROOT/bin"
-push_path "$PYENV_ROOT/shims"
-which pyenv > /dev/null && eval "$(pyenv init -)"
+if [ -d "$HOME/.pyenv" ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    push_path "$PYENV_ROOT/bin"
+    push_path "$PYENV_ROOT/shims"
+fi
+which pyenv > /dev/null && eval "$(pyenv init -)" || true
