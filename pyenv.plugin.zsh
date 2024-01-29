@@ -22,4 +22,4 @@ if [ -d "$HOME/.pyenv" ]; then
     push_path "$PYENV_ROOT/bin"
     push_path "$PYENV_ROOT/shims"
 fi
-which pyenv > /dev/null && eval "$(pyenv init -)" || true
+which pyenv > /dev/null 2>&1 && eval "$(pyenv init -)" || true
